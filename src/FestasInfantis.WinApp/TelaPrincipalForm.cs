@@ -58,6 +58,5 @@ namespace FestasInfantis.WinApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
-
     }
 }
