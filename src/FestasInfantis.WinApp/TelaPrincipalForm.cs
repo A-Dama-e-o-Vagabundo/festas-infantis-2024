@@ -67,6 +67,15 @@ namespace FestasInfantis.WinApp
             btnEditar.ToolTipText = "Editar clientes";
             btnExcluir.ToolTipText = "Excluir clientes";
 
+            btnAdicionar.Enabled = true;
+            btnEditar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnAdicionarItens.Enabled = true;
+            btnConcluirAluguel.Enabled = true;
+            btnFiltrar.Enabled = true;
+            btnVisualizarAlugueis.Enabled = true;
+            btnConfigurarDescontos.Enabled = true;
+
             lblTipoCadastro.Text = "Cadastro de Clientes";
 
             ListagemClienteControl listagemClienteControl = new ListagemClienteControl();
