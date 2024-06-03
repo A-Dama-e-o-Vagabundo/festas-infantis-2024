@@ -33,6 +33,7 @@
             contatosMenuItem = new ToolStripMenuItem();
             compromissosMenuItem = new ToolStripMenuItem();
             tarefasToolStripMenuItem = new ToolStripMenuItem();
+            aluguelToolStripMenuItem = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             statusLabelPrincipal = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
@@ -50,7 +51,6 @@
             toolStripSeparator4 = new ToolStripSeparator();
             lblTipoCadastro = new ToolStripLabel();
             pnlRegistros = new Panel();
-            aluguelToolStripMenuItem = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -78,18 +78,25 @@
             contatosMenuItem.Name = "contatosMenuItem";
             contatosMenuItem.Size = new Size(180, 24);
             contatosMenuItem.Text = "Clientes";
+            contatosMenuItem.Click += contatosMenuItem_Click;
             // 
             // compromissosMenuItem
             // 
             compromissosMenuItem.Name = "compromissosMenuItem";
             compromissosMenuItem.Size = new Size(180, 24);
-            compromissosMenuItem.Text = "Tema";
+            compromissosMenuItem.Text = "Temas";
             // 
             // tarefasToolStripMenuItem
             // 
             tarefasToolStripMenuItem.Name = "tarefasToolStripMenuItem";
             tarefasToolStripMenuItem.Size = new Size(180, 24);
-            tarefasToolStripMenuItem.Text = "Item";
+            tarefasToolStripMenuItem.Text = "Itens";
+            // 
+            // aluguelToolStripMenuItem
+            // 
+            aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
+            aluguelToolStripMenuItem.Size = new Size(180, 24);
+            aluguelToolStripMenuItem.Text = "Aluguéis";
             // 
             // statusStrip1
             // 
@@ -126,6 +133,7 @@
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Padding = new Padding(5);
             btnAdicionar.Size = new Size(38, 38);
+            btnAdicionar.Click += btnAdicionar_Click;
             // 
             // btnEditar
             // 
@@ -238,12 +246,6 @@
             pnlRegistros.Name = "pnlRegistros";
             pnlRegistros.Size = new Size(800, 356);
             pnlRegistros.TabIndex = 3;
-            // 
-            // aluguelToolStripMenuItem
-            // 
-            aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
-            aluguelToolStripMenuItem.Size = new Size(180, 24);
-            aluguelToolStripMenuItem.Text = "Aluguel";
             // 
             // TelaPrincipalForm
             // 

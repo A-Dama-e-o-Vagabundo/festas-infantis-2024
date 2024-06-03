@@ -1,0 +1,13 @@
+﻿namespace FestasInfantis.WinApp.Cliente
+{
+    public partial class ListagemClienteControl : UserControl
+    {
+        public ListagemClienteControl()
+        {
+            InitializeComponent();
+
+
+            listClientes.Items.Add(new Cliente("Eduardo", "(49)999362871", "123.456.789-10"));
+        }
+    }
+}

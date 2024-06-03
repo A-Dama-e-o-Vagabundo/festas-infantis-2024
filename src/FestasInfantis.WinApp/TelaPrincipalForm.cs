@@ -1,4 +1,6 @@
 using eAgenda.WinApp.Compartilhado;
+using FestasInfantis.WinApp.Cliente;
+using FestasInfantis.WinApp.ModuloCliente;
 
 namespace FestasInfantis.WinApp
 {
@@ -57,6 +59,28 @@ namespace FestasInfantis.WinApp
 
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
+        }
+
+        private void contatosMenuItem_Click(object sender, EventArgs e)
+        {
+            btnAdicionar.ToolTipText = "Cadastrar um novo cliente";
+            btnEditar.ToolTipText = "Editar clientes";
+            btnExcluir.ToolTipText = "Excluir clientes";
+
+            lblTipoCadastro.Text = "Cadastro de Clientes";
+
+            ListagemClienteControl listagemClienteControl = new ListagemClienteControl();
+            listagemClienteControl.Dock = DockStyle.Fill;
+
+            pnlRegistros.Controls.Clear();
+            pnlRegistros.Controls.Add(listagemClienteControl);
+        }
+
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            TelaClienteForm telaClienteForm = new TelaClienteForm();
+
+            telaClienteForm.ShowDialog();
         }
     }
 }
