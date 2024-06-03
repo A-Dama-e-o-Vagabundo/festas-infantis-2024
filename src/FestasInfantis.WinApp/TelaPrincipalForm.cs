@@ -63,10 +63,12 @@ namespace FestasInfantis.WinApp
 
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
+            // Colocando mensangens para o usuário
             btnAdicionar.ToolTipText = "Cadastrar um novo cliente";
             btnEditar.ToolTipText = "Editar clientes";
             btnExcluir.ToolTipText = "Excluir clientes";
 
+            // Habilitando botões
             btnAdicionar.Enabled = true;
             btnEditar.Enabled = true;
             btnExcluir.Enabled = true;
