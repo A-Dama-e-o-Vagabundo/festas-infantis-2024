@@ -63,20 +63,9 @@ namespace FestasInfantis.WinApp
 
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
-            // Colocando mensangens para o usuário
-            btnAdicionar.ToolTipText = "Cadastrar um novo cliente";
-            btnEditar.ToolTipText = "Editar clientes";
-            btnExcluir.ToolTipText = "Excluir clientes";
+            ConfigurarToolTips();
 
-            // Habilitando botões
-            btnAdicionar.Enabled = true;
-            btnEditar.Enabled = true;
-            btnExcluir.Enabled = true;
-            btnAdicionarItens.Enabled = true;
-            btnConcluirAluguel.Enabled = true;
-            btnFiltrar.Enabled = true;
-            btnVisualizarAlugueis.Enabled = true;
-            btnConfigurarDescontos.Enabled = true;
+            HabilitandoBotoes();
 
             lblTipoCadastro.Text = "Cadastro de Clientes";
 
@@ -89,9 +78,44 @@ namespace FestasInfantis.WinApp
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            TelaClienteForm telaClienteForm = new TelaClienteForm();
-
-            telaClienteForm.ShowDialog();
+            controlador.Adicionar();
         }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void HabilitandoBotoes()
+        {
+            btnAdicionar.Enabled = true;
+            btnEditar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnAdicionarItens.Enabled = true;
+            btnConcluirAluguel.Enabled = true;
+            btnFiltrar.Enabled = true;
+            btnVisualizarAlugueis.Enabled = true;
+            btnConfigurarDescontos.Enabled = true;
+        }
+
+        private void ConfigurarToolTips()
+        {
+            controlador = new ControladorCliente();
+
+            btnAdicionar.ToolTipText = controlador.ToolTipAdicionar;
+            btnEditar.ToolTipText = controlador.ToolTipEditar;
+            btnExcluir.ToolTipText = controlador.ToolTipExcluir;
+
+            btnAdicionarItens.ToolTipText = "Adicionar item";
+            btnConcluirAluguel.ToolTipText = "Concluir Aluguel";
+            btnFiltrar.ToolTipText = "Filtrar";
+            btnVisualizarAlugueis.ToolTipText = "Visualizar aluguéis";
+            btnConfigurarDescontos.ToolTipText = "Configurar descontos";
+        }
+
     }
 }

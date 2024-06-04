@@ -76,26 +76,26 @@
             // contatosMenuItem
             // 
             contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(180, 24);
+            contatosMenuItem.Size = new Size(135, 24);
             contatosMenuItem.Text = "Clientes";
             contatosMenuItem.Click += contatosMenuItem_Click;
             // 
             // compromissosMenuItem
             // 
             compromissosMenuItem.Name = "compromissosMenuItem";
-            compromissosMenuItem.Size = new Size(180, 24);
+            compromissosMenuItem.Size = new Size(135, 24);
             compromissosMenuItem.Text = "Temas";
             // 
             // tarefasToolStripMenuItem
             // 
             tarefasToolStripMenuItem.Name = "tarefasToolStripMenuItem";
-            tarefasToolStripMenuItem.Size = new Size(180, 24);
+            tarefasToolStripMenuItem.Size = new Size(135, 24);
             tarefasToolStripMenuItem.Text = "Itens";
             // 
             // aluguelToolStripMenuItem
             // 
             aluguelToolStripMenuItem.Name = "aluguelToolStripMenuItem";
-            aluguelToolStripMenuItem.Size = new Size(180, 24);
+            aluguelToolStripMenuItem.Size = new Size(135, 24);
             aluguelToolStripMenuItem.Text = "Aluguéis";
             // 
             // statusStrip1
@@ -145,6 +145,7 @@
             btnEditar.Name = "btnEditar";
             btnEditar.Padding = new Padding(5);
             btnEditar.Size = new Size(38, 38);
+            btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
             // 
@@ -156,6 +157,7 @@
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Padding = new Padding(5);
             btnExcluir.Size = new Size(38, 38);
+            btnExcluir.Click += btnExcluir_Click;
             // 
             // toolStripSeparator1
             // 
