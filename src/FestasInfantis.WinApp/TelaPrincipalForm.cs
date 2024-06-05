@@ -1,5 +1,4 @@
 using eAgenda.WinApp.Compartilhado;
-using FestasInfantis.WinApp.Cliente;
 using FestasInfantis.WinApp.ModuloCliente;
 
 namespace FestasInfantis.WinApp
@@ -8,14 +7,14 @@ namespace FestasInfantis.WinApp
     {
         ControladorBase controlador;
 
-        public static TelaPrincipalForm Instancia { get; private set; }
+        RepositorioCliente repositorioCliente;
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
-
             lblTipoCadastro.Text = string.Empty;
-            Instancia = this;
+            
+            repositorioCliente = new RepositorioCliente();
         }
 
         public void AtualizarRodape(string texto)
@@ -63,17 +62,9 @@ namespace FestasInfantis.WinApp
 
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurarToolTips();
+            controlador = new ControladorCliente(repositorioCliente);
 
-            HabilitandoBotoes();
-
-            lblTipoCadastro.Text = "Cadastro de Clientes";
-
-            ListagemClienteControl listagemClienteControl = new ListagemClienteControl();
-            listagemClienteControl.Dock = DockStyle.Fill;
-
-            pnlRegistros.Controls.Clear();
-            pnlRegistros.Controls.Add(listagemClienteControl);
+            ConfigurarTelaPrincipal(controlador);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -104,8 +95,6 @@ namespace FestasInfantis.WinApp
 
         private void ConfigurarToolTips()
         {
-            controlador = new ControladorCliente();
-
             btnAdicionar.ToolTipText = controlador.ToolTipAdicionar;
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
@@ -116,6 +105,5 @@ namespace FestasInfantis.WinApp
             btnVisualizarAlugueis.ToolTipText = "Visualizar aluguéis";
             btnConfigurarDescontos.ToolTipText = "Configurar descontos";
         }
-
     }
 }

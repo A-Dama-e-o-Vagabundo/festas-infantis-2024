@@ -2,8 +2,16 @@
 
 namespace FestasInfantis.WinApp.ModuloCliente
 {
-    internal class ControladorCliente : ControladorBase
+    public class ControladorCliente : ControladorBase
     {
+        private RepositorioCliente repositorioCliente;
+        private ListagemClienteControl listagemCliente;
+
+        public ControladorCliente(RepositorioCliente repositorio)
+        {
+            this.repositorioCliente = repositorio;
+        }
+
         public override string TipoCadastro { get { return "Clientes"; } }
 
         public override string ToolTipAdicionar { get { return "Cadastrar um novo cliente"; } }
@@ -14,11 +22,19 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
         public override void Adicionar()
         {
-            TelaClienteForm telaClienteForm = new TelaClienteForm();
+            TelaClienteForm telaCliente = new TelaClienteForm();
 
-            telaClienteForm.ShowDialog();
+            DialogResult resultado = telaCliente.ShowDialog();
+
+            if (resultado == DialogResult.OK)
+            {
+                Cliente novoCliente = telaCliente.Cliente;
+
+                repositorioCliente.Cadastrar(novoCliente);
+
+                CarregarClientes();
+            }
         }
-
         public override void Editar()
         {
             throw new NotImplementedException();
@@ -29,9 +45,23 @@ namespace FestasInfantis.WinApp.ModuloCliente
             throw new NotImplementedException();
         }
 
+        private void CarregarClientes()
+        {
+            List<Cliente> clientes = repositorioCliente.SelecionarTodos();
+
+            listagemCliente.AtualizarRegistros(clientes);
+        }
+
         public override UserControl ObterListagem()
         {
-            throw new NotImplementedException();
+            if (listagemCliente == null)
+            {
+                listagemCliente = new ListagemClienteControl();
+            }
+
+            CarregarClientes();
+
+            return listagemCliente;
         }
     }
 }

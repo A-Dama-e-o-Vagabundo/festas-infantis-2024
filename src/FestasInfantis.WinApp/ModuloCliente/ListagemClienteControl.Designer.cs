@@ -1,4 +1,4 @@
-﻿namespace FestasInfantis.WinApp.Cliente
+﻿namespace FestasInfantis.WinApp.ModuloCliente
 {
     partial class ListagemClienteControl
     {

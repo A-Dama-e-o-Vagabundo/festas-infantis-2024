@@ -1,8 +1,8 @@
 ﻿using eAgenda.ConsoleApp.Compartilhado;
 
-namespace FestasInfantis.WinApp.Cliente
+namespace FestasInfantis.WinApp.ModuloCliente
 {
-    internal class Cliente : EntidadeBase
+    public class Cliente : EntidadeBase
     {
         public string Nome { get; set; }
         public string Telefone { get; set; }

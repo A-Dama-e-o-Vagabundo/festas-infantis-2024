@@ -1,4 +1,4 @@
-﻿namespace FestasInfantis.WinApp.Cliente
+﻿namespace FestasInfantis.WinApp.ModuloCliente
 {
     public partial class ListagemClienteControl : UserControl
     {
@@ -6,8 +6,17 @@
         {
             InitializeComponent();
 
+            //listClientes.Items.Add(new Cliente("Eduardo", "(49)999362871", "123.456.789-10"));
+        }
 
-            listClientes.Items.Add(new Cliente("Eduardo", "(49)999362871", "123.456.789-10"));
+        public void AtualizarRegistros(List<Cliente> clientes)
+        {
+            listClientes.Items.Clear();
+
+            foreach (Cliente cliente in clientes)
+            {
+                listClientes.Items.Add(cliente);
+            }
         }
     }
 }
