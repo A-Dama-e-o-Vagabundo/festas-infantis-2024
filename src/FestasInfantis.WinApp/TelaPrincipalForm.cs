@@ -73,12 +73,12 @@ namespace FestasInfantis.WinApp
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
-
+            controlador.Editar();
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)
         {
-
+            controlador.Excluir();
         }
 
         private void HabilitandoBotoes()

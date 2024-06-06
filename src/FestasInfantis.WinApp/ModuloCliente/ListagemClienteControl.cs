@@ -6,7 +6,7 @@
         {
             InitializeComponent();
 
-            //listClientes.Items.Add(new Cliente("Eduardo", "(49)999362871", "123.456.789-10"));
+            listClientes.Items.Add(new Cliente("Eduardo", "(49)999362871", "123.456.789-10"));
         }
 
         public void AtualizarRegistros(List<Cliente> clientes)
@@ -17,6 +17,14 @@
             {
                 listClientes.Items.Add(cliente);
             }
+        }
+
+        public Cliente ObterRegistroSelecionado()
+        {
+            if (listClientes.SelectedItem == null)
+                return null;
+
+            return (Cliente)listClientes.SelectedItem;
         }
     }
 }

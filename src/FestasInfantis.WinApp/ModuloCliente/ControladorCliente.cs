@@ -26,18 +26,24 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
             DialogResult resultado = telaCliente.ShowDialog();
 
-            if (resultado == DialogResult.OK)
-            {
-                Cliente novoCliente = telaCliente.Cliente;
+            if (resultado != DialogResult.OK)
+                return;
+            
+            Cliente novoCliente = telaCliente.Cliente;
 
-                repositorioCliente.Cadastrar(novoCliente);
+            repositorioCliente.Cadastrar(novoCliente);
 
-                CarregarClientes();
-            }
+            CarregarClientes();
         }
         public override void Editar()
         {
-            throw new NotImplementedException();
+            TelaClienteForm telaCliente = new TelaClienteForm();
+
+            Cliente clienteSelecionado = listagemCliente.ObterRegistroSelecionado();
+
+            telaCliente.Cliente = clienteSelecionado;
+            
+            DialogResult resultado = telaCliente.ShowDialog();
         }
 
         public override void Excluir()

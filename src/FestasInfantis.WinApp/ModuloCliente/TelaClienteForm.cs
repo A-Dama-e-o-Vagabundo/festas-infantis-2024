@@ -3,7 +3,20 @@
     public partial class TelaClienteForm : Form
     {
         private Cliente cliente;
-        public Cliente Cliente { get { return cliente; } }
+        public Cliente Cliente 
+        { 
+            set 
+            {
+                txtId.Text = value.Id.ToString();
+                txtNome.Text = value.Nome;
+                txtTelefone.Text = value.Telefone;
+                txtCpf.Text = value.Cpf;
+            }
+            get 
+            { 
+                return cliente; 
+            }
+        }
 
         public TelaClienteForm()
         {
