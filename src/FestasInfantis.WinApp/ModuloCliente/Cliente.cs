@@ -29,7 +29,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
             List<string> erros = new List<string>();
 
             if (string.IsNullOrEmpty(Nome))
-                erros.Add("O tampo \"nome\" é obrigatório");
+                erros.Add("O campo \"nome\" é obrigatório");
             if (string.IsNullOrEmpty(Telefone))
                 erros.Add("O campo \"telefone\" é obrigatório");
             if (string.IsNullOrEmpty(Cpf))

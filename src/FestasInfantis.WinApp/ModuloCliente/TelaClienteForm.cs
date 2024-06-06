@@ -30,6 +30,16 @@
             string cpf = txtCpf.Text;
 
             cliente = new Cliente(nome, telefone, cpf);
+
+            List<string> erros = cliente.Validar();
+
+            if (erros.Count > 0)
+            {
+                TelaPrincipalForm.Instancia.AtualizarRodape(erros[0]);
+
+                DialogResult = DialogResult.None;
+
+            }
         }
     }
 }
