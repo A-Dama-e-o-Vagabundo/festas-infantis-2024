@@ -44,11 +44,34 @@ namespace FestasInfantis.WinApp.ModuloCliente
             telaCliente.Cliente = clienteSelecionado;
             
             DialogResult resultado = telaCliente.ShowDialog();
+
+            if (resultado != DialogResult.OK)
+                return;
+
+            Cliente clienteEditado = telaCliente.Cliente;
+
+            repositorioCliente.Editar(clienteSelecionado.Id, clienteEditado);
+
+            CarregarClientes();
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Cliente clienteSelecionado = listagemCliente.ObterRegistroSelecionado();
+
+            DialogResult resposta = MessageBox.Show(
+                $"Você deseja realmente excluir o registro \"{clienteSelecionado.Nome}\"?",
+                "Confirmar Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (resposta != DialogResult.Yes)
+                return;
+
+            repositorioCliente.Excluir(clienteSelecionado.Id);
+
+            CarregarClientes();
         }
 
         private void CarregarClientes()

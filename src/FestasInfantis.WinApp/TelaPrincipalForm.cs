@@ -16,6 +16,19 @@ namespace FestasInfantis.WinApp
             
             repositorioCliente = new RepositorioCliente();
         }
+        private void btnAdicionar_Click(object sender, EventArgs e)
+        {
+            controlador.Adicionar();
+        }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            controlador.Editar();
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            controlador.Excluir();
+        }
 
         public void AtualizarRodape(string texto)
         {
@@ -51,34 +64,11 @@ namespace FestasInfantis.WinApp
                 btnFiltrar.ToolTipText = controladorFiltravel.ToolTipFiltrar;
         }
 
-        private void ConfigurarListagem(ControladorBase controladorSelecionado)
-        {
-            UserControl listagemContato = controladorSelecionado.ObterListagem();
-            listagemContato.Dock = DockStyle.Fill;
-
-            pnlRegistros.Controls.Clear();
-            pnlRegistros.Controls.Add(listagemContato);
-        }
-
         private void contatosMenuItem_Click(object sender, EventArgs e)
         {
             controlador = new ControladorCliente(repositorioCliente);
 
             ConfigurarTelaPrincipal(controlador);
-        }
-
-        private void btnAdicionar_Click(object sender, EventArgs e)
-        {
-            controlador.Adicionar();
-        }
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            controlador.Editar();
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            controlador.Excluir();
         }
 
         private void HabilitandoBotoes()
@@ -104,6 +94,14 @@ namespace FestasInfantis.WinApp
             btnFiltrar.ToolTipText = "Filtrar";
             btnVisualizarAlugueis.ToolTipText = "Visualizar aluguéis";
             btnConfigurarDescontos.ToolTipText = "Configurar descontos";
+        }
+        private void ConfigurarListagem(ControladorBase controladorSelecionado)
+        {
+            UserControl listagemContato = controladorSelecionado.ObterListagem();
+            listagemContato.Dock = DockStyle.Fill;
+
+            pnlRegistros.Controls.Clear();
+            pnlRegistros.Controls.Add(listagemContato);
         }
     }
 }
