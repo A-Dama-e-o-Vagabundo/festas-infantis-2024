@@ -9,7 +9,7 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
         public ControladorCliente(RepositorioCliente repositorio)
         {
-            this.repositorioCliente = repositorio;
+            repositorioCliente = repositorio;
         }
 
         public override string TipoCadastro { get { return "Clientes"; } }
@@ -34,6 +34,10 @@ namespace FestasInfantis.WinApp.ModuloCliente
             repositorioCliente.Cadastrar(novoCliente);
 
             CarregarClientes();
+
+            TelaPrincipalForm
+                .Instancia
+                .AtualizarRodape($"O registro \"{novoCliente.Nome}\" foi criado com sucesso!");
         }
         public override void Editar()
         {

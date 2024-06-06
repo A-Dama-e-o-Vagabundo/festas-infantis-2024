@@ -9,13 +9,23 @@ namespace FestasInfantis.WinApp
 
         RepositorioCliente repositorioCliente;
 
+        public static TelaPrincipalForm Instancia { get; private set; }
+
         public TelaPrincipalForm()
         {
             InitializeComponent();
             lblTipoCadastro.Text = string.Empty;
             
             repositorioCliente = new RepositorioCliente();
+
+            TelaPrincipalForm.Instancia = this;
         }
+
+        public void AtualizarRodape(string texto)
+        {
+            statusLabelPrincipal.Text = texto;
+        }
+
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             controlador.Adicionar();
@@ -28,11 +38,6 @@ namespace FestasInfantis.WinApp
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             controlador.Excluir();
-        }
-
-        public void AtualizarRodape(string texto)
-        {
-            statusLabelPrincipal.Text = texto;
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
