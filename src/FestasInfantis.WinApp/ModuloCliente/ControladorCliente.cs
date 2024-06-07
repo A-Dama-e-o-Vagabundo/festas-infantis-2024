@@ -78,13 +78,6 @@ namespace FestasInfantis.WinApp.ModuloCliente
             CarregarClientes();
         }
 
-        private void CarregarClientes()
-        {
-            List<Cliente> clientes = repositorioCliente.SelecionarTodos();
-
-            listagemCliente.AtualizarRegistros(clientes);
-        }
-
         public override UserControl ObterListagem()
         {
             if (listagemCliente == null)
@@ -96,5 +89,13 @@ namespace FestasInfantis.WinApp.ModuloCliente
 
             return listagemCliente;
         }
+
+        private void CarregarClientes()
+        {
+            List<Cliente> clientes = repositorioCliente.SelecionarTodos();
+
+            listagemCliente.AtualizarRegistros(clientes);
+        }
+
     }
 }

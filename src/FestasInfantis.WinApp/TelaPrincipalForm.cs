@@ -1,5 +1,6 @@
 using eAgenda.WinApp.Compartilhado;
 using FestasInfantis.WinApp.ModuloCliente;
+using FestasInfantis.WinApp.ModuloItem;
 
 namespace FestasInfantis.WinApp
 {
@@ -8,6 +9,7 @@ namespace FestasInfantis.WinApp
         ControladorBase controlador;
 
         RepositorioCliente repositorioCliente;
+        RepositorioItem repositorioItem;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -15,15 +17,23 @@ namespace FestasInfantis.WinApp
         {
             InitializeComponent();
             lblTipoCadastro.Text = string.Empty;
-            
+
             repositorioCliente = new RepositorioCliente();
 
-            TelaPrincipalForm.Instancia = this;
+            Instancia = this;
         }
 
-        public void AtualizarRodape(string texto)
+        private void clientesMenuItem_Click(object sender, EventArgs e)
         {
-            statusLabelPrincipal.Text = texto;
+            controlador = new ControladorCliente(repositorioCliente);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+        private void itensMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorItem(repositorioItem);
+
+            ConfigurarTelaPrincipal(controlador);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -38,6 +48,11 @@ namespace FestasInfantis.WinApp
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             controlador.Excluir();
+        }
+
+        public void AtualizarRodape(string texto)
+        {
+            statusLabelPrincipal.Text = texto;
         }
 
         private void ConfigurarTelaPrincipal(ControladorBase controladorSelecionado)
@@ -67,13 +82,6 @@ namespace FestasInfantis.WinApp
 
             if (controladorSelecionado is IControladorFiltravel controladorFiltravel)
                 btnFiltrar.ToolTipText = controladorFiltravel.ToolTipFiltrar;
-        }
-
-        private void contatosMenuItem_Click(object sender, EventArgs e)
-        {
-            controlador = new ControladorCliente(repositorioCliente);
-
-            ConfigurarTelaPrincipal(controlador);
         }
 
         private void HabilitandoBotoes()
@@ -108,5 +116,6 @@ namespace FestasInfantis.WinApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
+
     }
 }

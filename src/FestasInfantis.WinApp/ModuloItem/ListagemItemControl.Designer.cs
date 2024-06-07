@@ -1,6 +1,6 @@
-﻿namespace FestasInfantis.WinApp.ModuloCliente
+﻿namespace FestasInfantis.WinApp.ModuloItem
 {
-    partial class ListagemClienteControl
+    partial class ListagemItemControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listClientes = new ListBox();
+            listItens = new ListBox();
             SuspendLayout();
             // 
-            // listClientes
+            // listItens
             // 
-            listClientes.Dock = DockStyle.Fill;
-            listClientes.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listClientes.FormattingEnabled = true;
-            listClientes.ItemHeight = 20;
-            listClientes.Location = new Point(0, 0);
-            listClientes.Name = "listClientes";
-            listClientes.Size = new Size(525, 330);
-            listClientes.TabIndex = 0;
+            listItens.Dock = DockStyle.Fill;
+            listItens.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            listItens.FormattingEnabled = true;
+            listItens.ItemHeight = 20;
+            listItens.Location = new Point(0, 0);
+            listItens.Name = "listItens";
+            listItens.Size = new Size(545, 287);
+            listItens.TabIndex = 0;
             // 
-            // ListagemClienteControl
+            // ListagemItemControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(listClientes);
-            Name = "ListagemClienteControl";
-            Size = new Size(525, 330);
+            Controls.Add(listItens);
+            Name = "ListagemItemControl";
+            Size = new Size(545, 287);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox listClientes;
+        private ListBox listItens;
     }
 }
