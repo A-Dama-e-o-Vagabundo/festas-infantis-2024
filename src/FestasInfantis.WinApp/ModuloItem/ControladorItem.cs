@@ -1,4 +1,5 @@
 ﻿using eAgenda.WinApp.Compartilhado;
+using FestasInfantis.WinApp.ModuloCliente;
 
 namespace FestasInfantis.WinApp.ModuloItem
 {
@@ -33,7 +34,7 @@ namespace FestasInfantis.WinApp.ModuloItem
 
             repositorioItem.Cadastrar(novoItem);
 
-            CarregarItem();
+            CarregarItens();
 
             TelaPrincipalForm
                 .Instancia
@@ -43,12 +44,41 @@ namespace FestasInfantis.WinApp.ModuloItem
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            TelaItemForm telaItem = new TelaItemForm();
+
+            Item itemSelecionado = listagemItem.ObterRegistroSelecionado();
+
+            telaItem.Item = itemSelecionado;
+
+            DialogResult resultado = telaItem.ShowDialog();
+
+            if (resultado != DialogResult.OK)
+                return;
+
+            Item itemEditado = telaItem.Item;
+
+            repositorioItem.Editar(itemSelecionado.Id, itemEditado);
+
+            CarregarItens();
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Item clienteSelecionado = listagemItem.ObterRegistroSelecionado();
+
+            DialogResult resposta = MessageBox.Show(
+                $"Você deseja realmente excluir o registro \"{clienteSelecionado.Descricao}\"?",
+                "Confirmar Exclusão",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
+
+            if (resposta != DialogResult.Yes)
+                return;
+
+            repositorioItem.Excluir(clienteSelecionado.Id);
+
+            CarregarItens();
         }
 
         public override UserControl ObterListagem()
@@ -58,12 +88,12 @@ namespace FestasInfantis.WinApp.ModuloItem
                 listagemItem = new ListagemItemControl();
             }
 
-            CarregarItem();
+            CarregarItens();
 
             return listagemItem;
         }
 
-        public void CarregarItem()
+        public void CarregarItens()
         {
             List<Item> itens = repositorioItem.SelecionarTodos();
 

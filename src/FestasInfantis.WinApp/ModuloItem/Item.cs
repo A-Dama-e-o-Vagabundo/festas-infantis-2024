@@ -31,7 +31,11 @@ namespace FestasInfantis.WinApp.ModuloItem
 
         public override void AtualizarRegistro(EntidadeBase novoRegistro)
         {
-            throw new NotImplementedException();
+            Item atualizado = (Item)novoRegistro;
+
+            Descricao = atualizado.Descricao;
+            Tema = atualizado.Tema;
+            Valor = atualizado.Valor;
         }
 
         public override string ToString()
