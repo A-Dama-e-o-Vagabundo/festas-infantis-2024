@@ -25,21 +25,20 @@ namespace FestasInfantis.WinApp.ModuloItem
             TelaItemForm telaItem = new TelaItemForm();
 
             DialogResult resultado = telaItem.ShowDialog();
-
-            /*
+            
             if (resultado != DialogResult.OK)
                 return;
 
-            Cliente novoCliente = telaCliente.Cliente;
+            Item novoItem = telaItem.Item;
 
-            repositorioCliente.Cadastrar(novoCliente);
+            repositorioItem.Cadastrar(novoItem);
 
-            CarregarClientes();
+            CarregarItem();
 
             TelaPrincipalForm
                 .Instancia
-                .AtualizarRodape($"O registro \"{novoCliente.Nome}\" foi criado com sucesso!");
-            */
+                .AtualizarRodape($"O registro \"{novoItem.Descricao}\" foi criado com sucesso!");
+            
         }
 
         public override void Editar()

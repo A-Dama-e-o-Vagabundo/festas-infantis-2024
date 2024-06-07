@@ -31,14 +31,14 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            button1 = new Button();
-            button2 = new Button();
-            numericUpDown1 = new NumericUpDown();
+            txtDescricao = new TextBox();
+            txtTema = new TextBox();
+            btnGravar = new Button();
+            btnCancelar = new Button();
+            txtValor = new NumericUpDown();
             label4 = new Label();
-            textBox3 = new TextBox();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            txtId = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)txtValor).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -68,44 +68,48 @@
             label3.TabIndex = 2;
             label3.Text = "Tema";
             // 
-            // textBox1
+            // txtDescricao
             // 
-            textBox1.Location = new Point(127, 69);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(271, 23);
-            textBox1.TabIndex = 1;
+            txtDescricao.Location = new Point(127, 69);
+            txtDescricao.Name = "txtDescricao";
+            txtDescricao.Size = new Size(271, 23);
+            txtDescricao.TabIndex = 1;
             // 
-            // textBox2
+            // txtTema
             // 
-            textBox2.Location = new Point(127, 98);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(271, 23);
-            textBox2.TabIndex = 2;
+            txtTema.Location = new Point(127, 98);
+            txtTema.Name = "txtTema";
+            txtTema.Size = new Size(271, 23);
+            txtTema.TabIndex = 2;
             // 
-            // button1
+            // btnGravar
             // 
-            button1.Location = new Point(157, 185);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 5;
-            button1.Text = "Gravar";
-            button1.UseVisualStyleBackColor = true;
+            btnGravar.DialogResult = DialogResult.OK;
+            btnGravar.Location = new Point(157, 185);
+            btnGravar.Name = "btnGravar";
+            btnGravar.Size = new Size(75, 23);
+            btnGravar.TabIndex = 5;
+            btnGravar.Text = "Gravar";
+            btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
-            // button2
+            // btnCancelar
             // 
-            button2.Location = new Point(238, 185);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 4;
-            button2.Text = "Cancelar";
-            button2.UseVisualStyleBackColor = true;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Location = new Point(238, 185);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.TabIndex = 4;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
-            // numericUpDown1
+            // txtValor
             // 
-            numericUpDown1.Location = new Point(127, 127);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(120, 23);
-            numericUpDown1.TabIndex = 3;
+            txtValor.Location = new Point(127, 127);
+            txtValor.Name = "txtValor";
+            txtValor.Size = new Size(120, 23);
+            txtValor.TabIndex = 3;
             // 
             // label4
             // 
@@ -117,33 +121,32 @@
             label4.TabIndex = 9;
             label4.Text = "Id:";
             // 
-            // textBox3
+            // txtId
             // 
-            textBox3.Enabled = false;
-            textBox3.Location = new Point(127, 40);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 0;
+            txtId.Enabled = false;
+            txtId.Location = new Point(127, 40);
+            txtId.Name = "txtId";
+            txtId.Size = new Size(100, 23);
+            txtId.TabIndex = 0;
             // 
             // TelaItemForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(479, 244);
-            Controls.Add(textBox3);
+            Controls.Add(txtId);
             Controls.Add(label4);
-            Controls.Add(numericUpDown1);
-            Controls.Add(button2);
-            Controls.Add(button1);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtValor);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
+            Controls.Add(txtTema);
+            Controls.Add(txtDescricao);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "TelaItemForm";
             Text = "Cadastros de Itens";
-            Load += TelaItemForm_Load;
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)txtValor).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -153,12 +156,12 @@
         private Label label1;
         private Label label2;
         private Label label3;
-        private TextBox textBox1;
-        private TextBox textBox2;
-        private Button button1;
-        private Button button2;
-        private NumericUpDown numericUpDown1;
+        private TextBox txtDescricao;
+        private TextBox txtTema;
+        private Button btnGravar;
+        private Button btnCancelar;
+        private NumericUpDown txtValor;
         private Label label4;
-        private TextBox textBox3;
+        private TextBox txtId;
     }
 }

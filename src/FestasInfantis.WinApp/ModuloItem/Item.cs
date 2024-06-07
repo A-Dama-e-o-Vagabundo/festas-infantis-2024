@@ -8,11 +8,11 @@ namespace FestasInfantis.WinApp.ModuloItem
         public string Valor { get; set; }
         public string Tema { get; set; }
 
-        public Item(string descricao, string valor, string tema)
+        public Item(string descricao, string tema, string valor)
         {
             Descricao = descricao;
-            Valor = valor;
             Tema = tema;
+            Valor = valor;
         }
 
         public override List<string> Validar()
@@ -21,10 +21,10 @@ namespace FestasInfantis.WinApp.ModuloItem
 
             if (string.IsNullOrEmpty(Descricao))
                 erros.Add("O campo \"descricao\" é obrigatório");
-            if (string.IsNullOrEmpty(Valor))
-                erros.Add("O campo \"valor\" é obrigatório");
             if (string.IsNullOrEmpty(Tema))
                 erros.Add("O campo \"tema\" é obrigatório ");
+            if (string.IsNullOrEmpty(Valor))
+                erros.Add("O campo \"valor\" é obrigatório");
 
             return erros;
         }

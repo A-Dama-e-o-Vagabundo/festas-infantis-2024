@@ -19,7 +19,7 @@ namespace FestasInfantis.WinApp
             lblTipoCadastro.Text = string.Empty;
 
             repositorioCliente = new RepositorioCliente();
-
+            repositorioItem = new RepositorioItem();
             Instancia = this;
         }
 
