@@ -1,6 +1,6 @@
 ﻿namespace FestasInfantis.WinApp.ModuloCliente
 {
-    partial class ListagemClienteControl
+    partial class TabelaClienteControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listClientes = new ListBox();
+            grid = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
             SuspendLayout();
             // 
-            // listClientes
+            // grid
             // 
-            listClientes.Dock = DockStyle.Fill;
-            listClientes.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listClientes.FormattingEnabled = true;
-            listClientes.ItemHeight = 20;
-            listClientes.Location = new Point(0, 0);
-            listClientes.Name = "listClientes";
-            listClientes.Size = new Size(525, 330);
-            listClientes.TabIndex = 0;
+            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid.Dock = DockStyle.Fill;
+            grid.Location = new Point(0, 0);
+            grid.Name = "grid";
+            grid.Size = new Size(465, 308);
+            grid.TabIndex = 0;
             // 
-            // ListagemClienteControl
+            // TabelaClienteControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(listClientes);
-            Name = "ListagemClienteControl";
-            Size = new Size(525, 330);
+            Controls.Add(grid);
+            Name = "TabelaClienteControl";
+            Size = new Size(465, 308);
+            ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox listClientes;
+        private DataGridView grid;
     }
 }

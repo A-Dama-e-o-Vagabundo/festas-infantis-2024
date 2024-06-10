@@ -1,4 +1,5 @@
 using eAgenda.WinApp.Compartilhado;
+using FestasInfantis.WinApp.Compartilhado;
 using FestasInfantis.WinApp.ModuloCliente;
 using FestasInfantis.WinApp.ModuloItem;
 
@@ -8,38 +9,43 @@ namespace FestasInfantis.WinApp
     {
         ControladorBase controlador;
 
-        RepositorioCliente repositorioCliente;
-        RepositorioItem repositorioItem;
+        ContextoDados contexto;
+        IRepositorioCliente repositorioCliente;
+        //RepositorioCliente repositorioCliente;
+        //RepositorioItem repositorioItem;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
         public TelaPrincipalForm()
         {
             InitializeComponent();
-            lblTipoCadastro.Text = string.Empty;
 
-            repositorioCliente = new RepositorioCliente();
-            repositorioItem = new RepositorioItem();
+            lblTipoCadastro.Text = string.Empty;
             Instancia = this;
+
+            contexto = new ContextoDados(true);
+            repositorioCliente = new RepositorioClienteEmArquivo(contexto);
         }
 
         private void clientesMenuItem_Click(object sender, EventArgs e)
-        {
+        {                                                                                               
             controlador = new ControladorCliente(repositorioCliente);
 
             ConfigurarTelaPrincipal(controlador);
         }
+
         private void itensMenuItem_Click(object sender, EventArgs e)
         {
-            controlador = new ControladorItem(repositorioItem);
+            //controlador = new ControladorItem(repositorioItem);
 
-            ConfigurarTelaPrincipal(controlador);
+            //ConfigurarTelaPrincipal(controlador);
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
             controlador.Adicionar();
         }
+
         private void btnEditar_Click(object sender, EventArgs e)
         {
             controlador.Editar();
@@ -116,6 +122,5 @@ namespace FestasInfantis.WinApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
-
     }
 }

@@ -76,27 +76,27 @@
             // contatosMenuItem
             // 
             contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(180, 24);
+            contatosMenuItem.Size = new Size(135, 24);
             contatosMenuItem.Text = "Clientes";
             contatosMenuItem.Click += clientesMenuItem_Click;
             // 
             // temasMenuItem
             // 
             temasMenuItem.Name = "temasMenuItem";
-            temasMenuItem.Size = new Size(180, 24);
+            temasMenuItem.Size = new Size(135, 24);
             temasMenuItem.Text = "Temas";
             // 
             // itensMenuItem
             // 
             itensMenuItem.Name = "itensMenuItem";
-            itensMenuItem.Size = new Size(180, 24);
+            itensMenuItem.Size = new Size(135, 24);
             itensMenuItem.Text = "Itens";
             itensMenuItem.Click += itensMenuItem_Click;
             // 
             // aluguelItem
             // 
             aluguelItem.Name = "aluguelItem";
-            aluguelItem.Size = new Size(180, 24);
+            aluguelItem.Size = new Size(135, 24);
             aluguelItem.Text = "Aluguéis";
             // 
             // statusStrip1
@@ -264,7 +264,7 @@
             Name = "TelaPrincipalForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Festas Infantis";
+            Text = " ";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             statusStrip1.ResumeLayout(false);
