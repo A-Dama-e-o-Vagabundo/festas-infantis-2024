@@ -34,10 +34,10 @@
             label4 = new Label();
             txtId = new TextBox();
             txtNome = new TextBox();
-            txtTelefone = new TextBox();
-            txtCpf = new TextBox();
             btnGravar = new Button();
             btnCancelar = new Button();
+            txtTelefone = new MaskedTextBox();
+            txtCpf = new MaskedTextBox();
             SuspendLayout();
             // 
             // label1
@@ -87,7 +87,7 @@
             txtId.Location = new Point(110, 35);
             txtId.Name = "txtId";
             txtId.Size = new Size(100, 27);
-            txtId.TabIndex = 4;
+            txtId.TabIndex = 0;
             txtId.Text = "0";
             // 
             // txtNome
@@ -96,23 +96,7 @@
             txtNome.Location = new Point(110, 64);
             txtNome.Name = "txtNome";
             txtNome.Size = new Size(271, 27);
-            txtNome.TabIndex = 5;
-            // 
-            // txtTelefone
-            // 
-            txtTelefone.Font = new Font("Segoe UI", 11.25F);
-            txtTelefone.Location = new Point(110, 93);
-            txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(271, 27);
-            txtTelefone.TabIndex = 6;
-            // 
-            // txtCpf
-            // 
-            txtCpf.Font = new Font("Segoe UI", 11.25F);
-            txtCpf.Location = new Point(110, 122);
-            txtCpf.Name = "txtCpf";
-            txtCpf.Size = new Size(271, 27);
-            txtCpf.TabIndex = 7;
+            txtNome.TabIndex = 1;
             // 
             // btnGravar
             // 
@@ -121,7 +105,7 @@
             btnGravar.Location = new Point(132, 181);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(85, 33);
-            btnGravar.TabIndex = 9;
+            btnGravar.TabIndex = 5;
             btnGravar.Text = "Gravar";
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
@@ -133,19 +117,35 @@
             btnCancelar.Location = new Point(223, 181);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(85, 33);
-            btnCancelar.TabIndex = 8;
+            btnCancelar.TabIndex = 4;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // txtTelefone
+            // 
+            txtTelefone.Location = new Point(110, 97);
+            txtTelefone.Mask = "(00) 00000-0000";
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(100, 23);
+            txtTelefone.TabIndex = 2;
+            // 
+            // txtCpf
+            // 
+            txtCpf.Location = new Point(110, 130);
+            txtCpf.Mask = "000.000.000-00";
+            txtCpf.Name = "txtCpf";
+            txtCpf.Size = new Size(100, 23);
+            txtCpf.TabIndex = 3;
             // 
             // TelaClienteForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(430, 226);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnGravar);
             Controls.Add(txtCpf);
             Controls.Add(txtTelefone);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnGravar);
             Controls.Add(txtNome);
             Controls.Add(txtId);
             Controls.Add(label4);
@@ -167,9 +167,9 @@
         private Label label4;
         private TextBox txtId;
         private TextBox txtNome;
-        private TextBox txtTelefone;
-        private TextBox txtCpf;
         private Button btnGravar;
         private Button btnCancelar;
+        private MaskedTextBox txtTelefone;
+        private MaskedTextBox txtCpf;
     }
 }
