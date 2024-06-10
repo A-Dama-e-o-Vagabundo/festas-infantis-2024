@@ -3,7 +3,7 @@ using FestasInfantis.WinApp.ModuloItem;
 
 namespace FestasInfantis.WinApp.ModuloTema
 {
-    internal class Tema : EntidadeBase
+    public class Tema : EntidadeBase
     {
         public string Nome { get; set; }
         public string ValorTotal { get; set; }
