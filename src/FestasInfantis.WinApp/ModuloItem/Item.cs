@@ -6,12 +6,10 @@ namespace FestasInfantis.WinApp.ModuloItem
     {
         public string Descricao { get; set; }
         public string Valor { get; set; }
-        public string Tema { get; set; }
 
-        public Item(string descricao, string tema, string valor)
+        public Item(string descricao,string valor)
         {
             Descricao = descricao;
-            Tema = tema;
             Valor = valor;
         }
 
@@ -21,8 +19,6 @@ namespace FestasInfantis.WinApp.ModuloItem
 
             if (string.IsNullOrEmpty(Descricao))
                 erros.Add("O campo \"descricao\" é obrigatório");
-            if (string.IsNullOrEmpty(Tema))
-                erros.Add("O campo \"tema\" é obrigatório ");
             if (string.IsNullOrEmpty(Valor))
                 erros.Add("O campo \"valor\" é obrigatório");
 
@@ -34,13 +30,12 @@ namespace FestasInfantis.WinApp.ModuloItem
             Item atualizado = (Item)novoRegistro;
 
             Descricao = atualizado.Descricao;
-            Tema = atualizado.Tema;
             Valor = atualizado.Valor;
         }
 
         public override string ToString()
         {
-            return $"Id: {Id}, Descricao: {Descricao}, Valor: {Valor}, Tema: {Tema}";
+            return $"Id: {Id}, Descricao: {Descricao}, Valor: {Valor}";
         }
     }
 }

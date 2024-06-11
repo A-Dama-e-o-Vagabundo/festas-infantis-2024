@@ -1,14 +1,13 @@
 ﻿using eAgenda.WinApp.Compartilhado;
-using FestasInfantis.WinApp.ModuloCliente;
 
 namespace FestasInfantis.WinApp.ModuloItem
 {
     public class ControladorItem : ControladorBase
     {
-        private RepositorioItem repositorioItem;
-        private ListagemItemControl listagemItem;
+        IRepositorioItem repositorioItem;
+        TabelaItemControl tabelaItem;
 
-        public ControladorItem(RepositorioItem repositorioItem)
+        public ControladorItem(IRepositorioItem repositorioItem)
         {
             this.repositorioItem = repositorioItem;
         }
@@ -46,7 +45,7 @@ namespace FestasInfantis.WinApp.ModuloItem
         {
             TelaItemForm telaItem = new TelaItemForm();
 
-            Item itemSelecionado = listagemItem.ObterRegistroSelecionado();
+            Item itemSelecionado = repositorioItem.SelecionarPorId(tabelaItem.ObterRegistroSelecionado());
 
             telaItem.Item = itemSelecionado;
 
@@ -64,7 +63,7 @@ namespace FestasInfantis.WinApp.ModuloItem
 
         public override void Excluir()
         {
-            Item clienteSelecionado = listagemItem.ObterRegistroSelecionado();
+            Item clienteSelecionado = repositorioItem.SelecionarPorId(tabelaItem.ObterRegistroSelecionado());
 
             DialogResult resposta = MessageBox.Show(
                 $"Você deseja realmente excluir o registro \"{clienteSelecionado.Descricao}\"?",
@@ -83,21 +82,21 @@ namespace FestasInfantis.WinApp.ModuloItem
 
         public override UserControl ObterListagem()
         {
-            if (listagemItem == null)
+            if (tabelaItem == null)
             {
-                listagemItem = new ListagemItemControl();
+                tabelaItem = new TabelaItemControl();
             }
 
             CarregarItens();
 
-            return listagemItem;
+            return tabelaItem;
         }
 
         public void CarregarItens()
         {
             List<Item> itens = repositorioItem.SelecionarTodos();
 
-            listagemItem.AtualizarRegistros(itens);
+            tabelaItem.AtualizarRegistros(itens);
         }
     }
 }

@@ -8,11 +8,9 @@ namespace FestasInfantis.WinApp
     public partial class TelaPrincipalForm : Form
     {
         ControladorBase controlador;
-
         ContextoDados contexto;
         IRepositorioCliente repositorioCliente;
-        //RepositorioCliente repositorioCliente;
-        //RepositorioItem repositorioItem;
+        IRepositorioItem repositorioItem;
 
         public static TelaPrincipalForm Instancia { get; private set; }
 
@@ -25,20 +23,35 @@ namespace FestasInfantis.WinApp
 
             contexto = new ContextoDados(true);
             repositorioCliente = new RepositorioClienteEmArquivo(contexto);
+            repositorioItem = new RepositorioItemEmArquivo(contexto);
         }
 
         private void clientesMenuItem_Click(object sender, EventArgs e)
-        {                                                                                               
+        {
             controlador = new ControladorCliente(repositorioCliente);
 
             ConfigurarTelaPrincipal(controlador);
         }
 
+        private void itensToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorItem(repositorioItem);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
+
+        /*
         private void itensMenuItem_Click(object sender, EventArgs e)
         {
-            //controlador = new ControladorItem(repositorioItem);
+            controlador = new ControladorItem(repositorioItem);
 
-            //ConfigurarTelaPrincipal(controlador);
+            ConfigurarTelaPrincipal(controlador);
+        }
+        */
+
+        private void temasMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
@@ -122,5 +135,6 @@ namespace FestasInfantis.WinApp
             pnlRegistros.Controls.Clear();
             pnlRegistros.Controls.Add(listagemContato);
         }
+
     }
 }

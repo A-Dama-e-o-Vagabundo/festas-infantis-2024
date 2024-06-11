@@ -1,6 +1,6 @@
 ﻿namespace FestasInfantis.WinApp.ModuloItem
 {
-    partial class ListagemItemControl
+    partial class TabelaItemControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,32 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listItens = new ListBox();
+            grid = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
             SuspendLayout();
             // 
-            // listItens
+            // grid
             // 
-            listItens.Dock = DockStyle.Fill;
-            listItens.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listItens.FormattingEnabled = true;
-            listItens.ItemHeight = 20;
-            listItens.Location = new Point(0, 0);
-            listItens.Name = "listItens";
-            listItens.Size = new Size(545, 287);
-            listItens.TabIndex = 0;
+            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid.Dock = DockStyle.Fill;
+            grid.Location = new Point(0, 0);
+            grid.Name = "grid";
+            grid.Size = new Size(499, 373);
+            grid.TabIndex = 0;
             // 
-            // ListagemItemControl
+            // TabelaItemControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(listItens);
-            Name = "ListagemItemControl";
-            Size = new Size(545, 287);
+            Controls.Add(grid);
+            Name = "TabelaItemControl";
+            Size = new Size(499, 373);
+            ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private ListBox listItens;
+        private DataGridView grid;
     }
 }
